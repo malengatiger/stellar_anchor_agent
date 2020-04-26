@@ -1,12 +1,13 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:stellar_anchor_library/models/agent.dart';
 import 'package:stellar_anchor_library/models/stokvel.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
 
 class PageOne extends StatelessWidget {
-  final Member member;
+  final Agent agent;
 
-  PageOne(this.member);
+  PageOne(this.agent);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class PageOne extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  member == null ? '' : member.name,
+                  agent == null ? '' : agent.personalKYCFields.getFullName(),
                   style: Styles.greyLabelSmall,
                 ),
               ],
@@ -51,8 +52,8 @@ class PageOne extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                'The Member App enables you to participate '
-                'in the Stokkie Network where you can save, make or give loans',
+                'The Agent App enables you to participate '
+                'in the Anchor Network where you can save, make or give loans',
                 style: Styles.blackBoldSmall,
               ),
             ),
@@ -71,9 +72,9 @@ class PageOne extends StatelessWidget {
 }
 
 class PageTwo extends StatelessWidget {
-  final Member member;
+  final Agent agent;
 
-  PageTwo(this.member);
+  PageTwo(this.agent);
 
   @override
   Widget build(BuildContext context) {
@@ -107,15 +108,15 @@ class PageTwo extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  member == null ? '' : member.name,
+                  agent == null ? '' : agent.personalKYCFields.getFullName(),
                   style: Styles.greyLabelSmall,
                 ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('The Member App enables you to participate '
-                  'in the Stokkie Network where you can save money with a group of your friends'),
+              child: Text('The Agent App enables you to participate '
+                  'in the Anchor Network where you can save money with a group of your friends'),
             ),
             SizedBox(
               height: 16,
@@ -132,9 +133,9 @@ class PageTwo extends StatelessWidget {
 }
 
 class PageThree extends StatelessWidget {
-  final Member member;
+  final Agent agent;
 
-  PageThree(this.member);
+  PageThree(this.agent);
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +146,6 @@ class PageThree extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Container(
-//                  color: Colors.blue,
                   height: 300,
                   width: double.infinity,
                   child: Opacity(
@@ -168,15 +168,15 @@ class PageThree extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  member == null ? '' : member.name,
+                  agent == null ? '' : agent.personalKYCFields.getFullName(),
                   style: Styles.greyLabelSmall,
                 ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('The Member App enables you to participate '
-                  'in the Stokkie Network where you can make or receive loans'),
+              child: Text('The Agent App enables you to participate '
+                  'in the Anchor Network where you can make or receive loans'),
             ),
             SizedBox(
               height: 16,
@@ -193,9 +193,9 @@ class PageThree extends StatelessWidget {
 }
 
 class PageFour extends StatelessWidget {
-  final Member member;
+  final Agent agent;
 
-  PageFour(this.member);
+  PageFour(this.agent);
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +206,6 @@ class PageFour extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Container(
-//                  color: Colors.blue,
                   height: 300,
                   width: double.infinity,
                   child: Opacity(
@@ -229,15 +228,15 @@ class PageFour extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  member == null ? '' : member.name,
+                  agent == null ? '' : agent.personalKYCFields.getFullName(),
                   style: Styles.greyLabelSmall,
                 ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('The Member App enables you to participate '
-                  'in the Stokkie Network where you can be Happy!'),
+              child: Text('The Agent App enables you to participate '
+                  'in the Anchor Network where you can be Happy!'),
             ),
             SizedBox(
               height: 16,
@@ -254,9 +253,9 @@ class PageFour extends StatelessWidget {
 }
 
 class PageFive extends StatelessWidget {
-  final Member member;
+  final Agent agent;
 
-  PageFive(this.member);
+  PageFive(this.agent);
 
   @override
   Widget build(BuildContext context) {
@@ -291,7 +290,7 @@ class PageFive extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  member == null ? '' : member.name,
+                  agent == null ? '' : agent.personalKYCFields.getFullName(),
                   style: Styles.greyLabelSmall,
                 ),
               ],

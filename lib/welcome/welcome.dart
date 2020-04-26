@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:stellar_anchor_agent/ui/login.dart';
 import 'package:stellar_anchor_agent/welcome/pages.dart';
+import 'package:stellar_anchor_library/models/agent.dart';
 import 'package:stellar_anchor_library/models/stokvel.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
 
 class Welcome extends StatefulWidget {
-  final Member member;
+  final Agent agent;
 
-  Welcome(this.member);
+  Welcome(this.agent);
 
   @override
   _WelcomeState createState() => _WelcomeState();
@@ -18,7 +19,6 @@ class _WelcomeState extends State<Welcome> {
   var _key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-//    final AnchorBloc bloc = Provider.of<AnchorBloc>(context);
     return SafeArea(
       child: WillPopScope(
           onWillPop: () async {
@@ -34,7 +34,7 @@ class _WelcomeState extends State<Welcome> {
                 'Anchor Network',
                 style: TextStyle(fontSize: 16),
               ),
-              bottom: widget.member == null
+              bottom: widget.agent == null
                   ? PreferredSize(
                       preferredSize: Size.fromHeight(40),
                       child: Padding(
@@ -83,11 +83,11 @@ class _WelcomeState extends State<Welcome> {
             ),
             body: PageView(
               children: <Widget>[
-                PageOne(widget.member),
-                PageTwo(widget.member),
-                PageThree(widget.member),
-                PageFour(widget.member),
-                PageFive(widget.member)
+                PageOne(widget.agent),
+                PageTwo(widget.agent),
+                PageThree(widget.agent),
+                PageFour(widget.agent),
+                PageFive(widget.agent)
               ],
             ),
           )),

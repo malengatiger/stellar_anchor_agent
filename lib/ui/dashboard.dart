@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_anchor_agent/ui/round_logo.dart';
+import 'package:stellar_anchor_agent/welcome/welcome.dart';
 import 'package:stellar_anchor_library/models/agent.dart';
 import 'package:stellar_anchor_library/models/balances.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
 import 'package:stellar_anchor_library/util/image_handler/random_image.dart';
 import 'package:stellar_anchor_library/util/util.dart';
+import 'package:stellar_anchor_library/widgets/agent_clients.dart';
 import 'package:stellar_anchor_library/widgets/avatar.dart';
 import 'package:stellar_anchor_library/widgets/balances_scroller.dart';
 import 'package:stellar_anchor_library/bloc/agent_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Dashboard extends StatefulWidget {
   final Agent agent;
@@ -27,7 +30,7 @@ class _DashboardState extends State<Dashboard> {
 
   _getBalances() async {
     balances = await agentBloc.getBalances(widget.agent.stellarAccountId);
-    p('🧡🧡🧡🧡🧡 Got ourselces some balances: 🧡 $balances');
+    p('🧡🧡🧡🧡🧡 Got ourselces some balances: 🧡 ${balances.toJson()}');
     setState(() {});
   }
 
@@ -39,6 +42,34 @@ class _DashboardState extends State<Dashboard> {
           backgroundColor: Colors.brown[100],
           elevation: 0,
           title: Text('Dashboard', style: Styles.whiteSmall),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.info),
+                onPressed: () => {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.scale,
+                          curve: Curves.easeInOut,
+                          duration: Duration(seconds: 2),
+                          child: Welcome(widget.agent),
+                        ),
+                      ),
+                    }),
+            IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () => {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.scale,
+                          curve: Curves.easeInOut,
+                          duration: Duration(seconds: 2),
+                          child: Welcome(widget.agent),
+                        ),
+                      ),
+                    }),
+          ],
           bottom: PreferredSize(
               child: Column(
                 children: <Widget>[
@@ -75,7 +106,8 @@ class _DashboardState extends State<Dashboard> {
                       width: 300,
                       decoration: BoxDecoration(
                         boxShadow: customShadow,
-                        color: secondaryColor, borderRadius: BorderRadius.circular(12),
+                        color: secondaryColor,
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -83,7 +115,26 @@ class _DashboardState extends State<Dashboard> {
                             direction: Axis.horizontal, balances: balances),
                       ),
                     )),
-                    Positioned(right: 40, top: 60, child: RoundAvatar(path: RandomImage.getImagePath(), radius: 140, fromNetwork: false)),
+            Positioned(
+                right: 40,
+                top: 60,
+                child: RoundAvatar(
+                    path: RandomImage.getImagePath(),
+                    radius: 140,
+                    fromNetwork: false)),
+            Positioned(
+                left: 60,
+                top: 200,
+                child: Container(
+                    child: Column(
+                  children: <Widget>[
+                    AgentClientsWidget(agent: widget.agent),
+                    SizedBox(height: 8),
+                    AgentLoans(agent: widget.agent),
+                    SizedBox(height: 8),
+                    AgentLoanPayments(agent: widget.agent)
+                  ],
+                ))),
           ],
         ),
       ),
