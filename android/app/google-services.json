@@ -44,6 +44,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "728928231383-ggr49p64ntf7cksvk60gppjg7vujta0p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anchor.stellar_anchor_agent",
+            "certificate_hash": "ed02ddd0e7e0820a41307a8872c95032d8f8c897"
+          }
+        },
+        {
           "client_id": "728928231383-js4uujjndveqail1dtt07hbg9sverb7o.apps.googleusercontent.com",
           "client_type": 3
         }
