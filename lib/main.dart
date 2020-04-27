@@ -5,6 +5,7 @@ import 'package:stellar_anchor_agent/welcome/welcome.dart';
 import 'package:stellar_anchor_library/util/prefs.dart';
 import 'package:stellar_anchor_library/util/slide_right.dart';
 import 'package:stellar_anchor_library/util/util.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,6 +46,15 @@ class _AgentHomeState extends State<AgentHome> {
     p('🔥 ...... Checking agent cache .....');
     if (agent != null) {
       Navigator.push(context, SlideRightRoute(widget: Dashboard(agent: agent)));
+      Navigator.push(
+        context,
+        PageTransition(
+          type: PageTransitionType.scale,
+          curve: Curves.easeInOut,
+          duration: Duration(seconds: 1),
+          child: Dashboard(agent: agent),
+        ),
+      );
     } else {
       Navigator.push(context, SlideRightRoute(widget: Welcome(null)));
     }
@@ -52,22 +62,27 @@ class _AgentHomeState extends State<AgentHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Anchor Network'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Agent',
-              style: TextStyle(
-                  fontSize: 72,
-                  fontWeight: FontWeight.w900,
-                  color: Theme.of(context).primaryColor),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: secondaryColor,
+        appBar: AppBar(
+          title: Text('Anchor Network'),
+          backgroundColor: secondaryColor,
+        ),
+        
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Agent',
+                style: TextStyle(
+                    fontSize: 66,
+                    fontWeight: FontWeight.w900,
+                    color: Theme.of(context).primaryColor),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -7,6 +7,7 @@ import 'package:stellar_anchor_library/util/functions.dart';
 import 'package:stellar_anchor_library/util/image_handler/random_image.dart';
 import 'package:stellar_anchor_library/util/util.dart';
 import 'package:stellar_anchor_library/widgets/agent_clients.dart';
+import 'package:stellar_anchor_library/widgets/agent_widgets.dart';
 import 'package:stellar_anchor_library/widgets/avatar.dart';
 import 'package:stellar_anchor_library/widgets/balances_scroller.dart';
 import 'package:stellar_anchor_library/bloc/agent_bloc.dart';
@@ -124,15 +125,45 @@ class _DashboardState extends State<Dashboard> {
                     fromNetwork: false)),
             Positioned(
                 left: 60,
-                top: 200,
+                top: 180,
                 child: Container(
                     child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    AgentClientsWidget(agent: widget.agent),
+                    GestureDetector(
+                      onTap: () {
+                        p('Navigate to AgentClientList ... ');
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.scale,
+                            curve: Curves.easeInOut,
+                            duration: Duration(seconds: 2),
+                            child: AgentClientList(agent: widget.agent),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          AgentClientsWidget(agent: widget.agent),
+                        ],
+                      ),
+                    ),
                     SizedBox(height: 8),
-                    AgentLoans(agent: widget.agent),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        AgentLoans(agent: widget.agent),
+                      ],
+                    ),
                     SizedBox(height: 8),
-                    AgentLoanPayments(agent: widget.agent)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        AgentLoanPayments(agent: widget.agent),
+                      ],
+                    )
                   ],
                 ))),
           ],
