@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stellar_anchor_agent/ui/round_logo.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:stellar_anchor_agent/welcome/welcome.dart';
+import 'package:stellar_anchor_library/bloc/agent_bloc.dart';
 import 'package:stellar_anchor_library/models/agent.dart';
 import 'package:stellar_anchor_library/models/balances.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
@@ -10,8 +11,8 @@ import 'package:stellar_anchor_library/widgets/agent_clients.dart';
 import 'package:stellar_anchor_library/widgets/agent_widgets.dart';
 import 'package:stellar_anchor_library/widgets/avatar.dart';
 import 'package:stellar_anchor_library/widgets/balances_scroller.dart';
-import 'package:stellar_anchor_library/bloc/agent_bloc.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:stellar_anchor_library/widgets/round_logo.dart';
+import 'package:stellar_anchor_library/widgets/sizes.dart';
 
 class Dashboard extends StatefulWidget {
   final Agent agent;
@@ -37,6 +38,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    var width = displayWidth(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -102,18 +104,20 @@ class _DashboardState extends State<Dashboard> {
                 : Positioned(
                     left: 20,
                     bottom: 20,
-                    child: Container(
-                      height: 60,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        boxShadow: customShadow,
-                        color: secondaryColor,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: BalancesScroller(
-                            direction: Axis.horizontal, balances: balances),
+                    child: Center(
+                      child: Container(
+                        height: 60,
+                        width: width - 40,
+                        decoration: BoxDecoration(
+                          boxShadow: customShadow,
+                          color: secondaryColor,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: BalancesScroller(
+                              direction: Axis.horizontal, balances: balances),
+                        ),
                       ),
                     )),
             Positioned(
