@@ -18,7 +18,6 @@ class PageOne extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Container(
-//                  color: Colors.blue,
                   height: 300,
                   width: double.infinity,
                   child: Opacity(

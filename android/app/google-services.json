@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "728928231383-0bvea8r68ceq1bvt97cptp5kcm9edcor.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anchor.stellar_anchor_admin_app",
+            "certificate_hash": "ed02ddd0e7e0820a41307a8872c95032d8f8c897"
+          }
+        },
+        {
           "client_id": "728928231383-js4uujjndveqail1dtt07hbg9sverb7o.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -51,6 +59,35 @@
             "certificate_hash": "ed02ddd0e7e0820a41307a8872c95032d8f8c897"
           }
         },
+        {
+          "client_id": "728928231383-js4uujjndveqail1dtt07hbg9sverb7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApUGi2wOKwih9VsHLKQFFSyfiQV79oLVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728928231383-js4uujjndveqail1dtt07hbg9sverb7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728928231383:android:1233879c77565ce6e5f592",
+        "android_client_info": {
+          "package_name": "com.anchor.stellar_anchor_agentx"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "728928231383-js4uujjndveqail1dtt07hbg9sverb7o.apps.googleusercontent.com",
           "client_type": 3

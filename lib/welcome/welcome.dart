@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:stellar_anchor_agent/ui/login.dart';
-import 'package:stellar_anchor_agent/welcome/pages.dart';
+import 'package:stellar_anchor_agentx/ui/login.dart';
+import 'package:stellar_anchor_agentx/welcome/pages.dart';
 import 'package:stellar_anchor_library/models/agent.dart';
-import 'package:stellar_anchor_library/models/stokvel.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
 
 class Welcome extends StatefulWidget {

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:stellar_anchor_agent/ui/dashboard.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:stellar_anchor_library/api/auth.dart';
 import 'package:stellar_anchor_library/util/functions.dart';
 import 'package:stellar_anchor_library/util/snack.dart';
 import 'package:stellar_anchor_library/util/util.dart';
-import 'package:page_transition/page_transition.dart';
+
+import '../dashboard.dart';
 
 class LoginMobile extends StatefulWidget {
   @override
@@ -77,7 +78,8 @@ class _LoginFormState extends State<LoginForm>
   @override
   void initState() {
     super.initState();
-    emailCntr.text = 'a1587785837726@anchor.com';
+    //todo - remove creds after test
+    emailCntr.text = 'a1588261736345@anchor.com';
     pswdCntr.text = 'pTiger3#Word!isWannamaker#23';
     _setUpAnimation();
   }
@@ -125,7 +127,8 @@ class _LoginFormState extends State<LoginForm>
       p('............ Signing in by calling Auth signIn ...');
       var agent = await Auth.signInAgent(
           email: emailCntr.text, password: pswdCntr.text);
-      print('🍎 🍎  🍎  🍎  🍎 ️signed in ok, ✳️ popping TO dashboard..... anchorUser: ${agent.toJson()}');
+      print(
+          '🍎 🍎  🍎  🍎 ️signed in ok, ✳️ popping TO dashboard..... AGENT: ${agent.toJson()}');
       Navigator.pop(context, true);
       if (agent != null) {
         Navigator.push(
@@ -134,7 +137,9 @@ class _LoginFormState extends State<LoginForm>
             type: PageTransitionType.scale,
             curve: Curves.easeInOut,
             duration: Duration(seconds: 2),
-            child: Dashboard(),
+            child: Dashboard(
+              agent: agent,
+            ),
           ),
         );
       }
